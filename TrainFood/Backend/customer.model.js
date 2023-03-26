@@ -15,9 +15,6 @@ Customers = new Schema({
     phone: {
         type: String
     },
-    customer_type: {
-        type: String
-    },
     email: {
         type: String
     },
