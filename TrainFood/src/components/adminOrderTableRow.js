@@ -29,10 +29,7 @@ class TableRow extends Component {
                    {this.props.obj.trainname}
                </td>
                <td>
-                   {this.props.obj.class}
-               </td>
-               <td>
-                   {this.props.obj.seatno}
+                   {this.props.obj.station}
                </td>
                <td>
                    {this.props.obj.qty}

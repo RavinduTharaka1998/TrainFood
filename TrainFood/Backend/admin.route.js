@@ -3,13 +3,15 @@ const adminRoutes = express.Router();
 
 let Orders = require('./order.model');
 
-adminRoutes.route('/adminorders/').get(function (req, res){
+adminRoutes.route('/adminorders/:id').get(function (req, res){
 
-    Orders.find(function (err,order){
+    let station = req.params.id;
+    console.log("your station is "+station);
+    Orders.find({$and:[{station : station}]},function (err,ord){
         if(err)
             console.log(err);
         else{
-            res.json(order);
+            res.json(ord)
         }
     });
 });

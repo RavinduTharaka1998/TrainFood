@@ -11,14 +11,14 @@ export default  class AdminHome extends  Component{
     constructor(props) {
         super(props);
         this.state = {orders : []};
-        //this.state.Email = this.props.match.params.id;
+        this.state.Station = this.props.match.params.id;
 
         //const Email = this.props.match.params.id;
     }
 
     componentDidMount() {
         // alert('email is ' +this.props.match.params.id);
-        axios.get('http://localhost:4000/trainFoodAdmin/adminorders/')
+        axios.get('http://localhost:4000/trainFoodAdmin/adminorders/'+this.props.match.params.id)
             .then(response => {
                 // alert('Pass una')
                 // alert('Data Tika :'+response.data)
@@ -41,16 +41,17 @@ export default  class AdminHome extends  Component{
         return(
                 <div>
                      <div class="sidebar">
-                        <a href= "/adminhome">Home</a>
+                        <a href= {"/adminhome/"+this.props.match.params.id}>Home</a>
                         <a href="/deliverydetails">Delivery Details</a>
-                        <a href="/adminhome">About Us</a>
-                        <a href="/adminhome">Contact Us</a>
-                        <a href="/adminhome">Profile</a>
+                        <a href={"/adminhome/"+this.props.match.params.id}>About Us</a>
+                        <a href={"/adminhome/"+this.props.match.params.id}>Contact Us</a>
+                        <a href={"/adminhome/"+this.props.match.params.id}>Profile</a>
+                        <a href="/">SignOut</a>
 
                         <div className='inner-menu'>
-                            <a href="/adminhome">Terms & Condition</a>
-                            <a href="/adminhome">Setting</a>
-                            <a href="/adminhome">More</a>
+                            <a href={"/adminhome/"+this.props.match.params.id}>Terms & Condition</a>
+                            <a href={"/adminhome/"+this.props.match.params.id}>Setting</a>
+                            <a href={"/adminhome/"+this.props.match.params.id}>More</a>
                         </div>
                     </div>
 
@@ -77,8 +78,7 @@ export default  class AdminHome extends  Component{
                                     {/* <th>id</th> */}
                                     <th>FoodName</th>
                                     <th>TrianName</th>
-                                    <th>Class</th>
-                                    <th>SeatNo</th>
+                                    <th>Station</th>
                                     <th>QTY</th>
                                     <th>Date</th>
                                     <th>Price</th>

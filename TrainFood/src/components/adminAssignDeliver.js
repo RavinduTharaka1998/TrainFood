@@ -11,8 +11,7 @@ export default  class AdminAssignDeliver extends  Component{
 
         this.onChangeFoodName = this.onChangeFoodName.bind(this);
         this.onChangeTrainName = this.onChangeTrainName.bind(this);
-        this.onChangeClass = this.onChangeClass.bind(this);
-        this.onChangeSeatNo = this.onChangeSeatNo.bind(this);
+        this.onChangeStation = this.onChangeStation.bind(this);
         this.onChangeQty = this.onChangeQty.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onChangePhone = this.onChangePhone.bind(this);
@@ -23,8 +22,7 @@ export default  class AdminAssignDeliver extends  Component{
         this.state = {
             foodname: '',
             trainname: '',
-            class:'',
-            seatno:'',
+            station:'',
             qty:'',
             price:'',
             date:'',
@@ -42,8 +40,7 @@ export default  class AdminAssignDeliver extends  Component{
                 this.setState({
                     foodname: res.data.foodname,
                     trainname: res.data.trainname,
-                    class: res.data.class,
-                    seatno: res.data.seatno,
+                    station: res.data.station,
                     qty: res.data.qty,
                     date: res.data.date,
                     price: res.data.price,
@@ -67,9 +64,9 @@ export default  class AdminAssignDeliver extends  Component{
             trainname: e.target.value
         });
     }
-    onChangeClass(e){
+    onChangeStation(e){
         this.setState( {
-            class: e.target.value
+            station: e.target.value
         });
     }
     onChangeSeatNo(e){
@@ -107,8 +104,7 @@ export default  class AdminAssignDeliver extends  Component{
         const obj = {
             foodname : this.state.foodname,
             trainname : this.state.trainname,
-            class : this.state.class,
-            seatno : this.state.seatno,
+            station : this.state.station,
             qty : this.state.qty,
             date : this.state.date,
             price : this.state.price,
@@ -123,23 +119,23 @@ export default  class AdminAssignDeliver extends  Component{
         axios.post('http://localhost:4000/trainFood/orderUpdate/'+this.props.match.params.id,obj)
             .then(res => console.log(res.data));
         //this.props.history.push('/myorder/'+this.state.email);
-        window.location.replace('/myorder/'+this.state.email);
+        window.location.replace('/adminhome');
     }
 
     render() {
         return(
             <div>
                 <div class="sidebar">
-                        <a href= {"/index/" +this.state.email}>Home</a>
-                        <a href={"/myorder/" +this.state.email}>My Orders</a>
-                        <a href="/about">About Us</a>
-                        <a href="/contact">Contact Us</a>
-                        <a href={"/cusprofile/"+this.state.email}>Profile</a>
+                        <a href= "/adminhome">Home</a>
+                        <a href="/deliverydetails">Delivery Details</a>
+                        <a href="/adminhome">About Us</a>
+                        <a href="/adminhome">Contact Us</a>
+                        <a href="/adminhome">Profile</a>
 
                         <div className='inner-menu'>
-                            <a href="/signin">Terms & Condition</a>
-                            <a href="/about">Setting</a>
-                            <a href="/contact">More</a>
+                            <a href="/adminhome">Terms & Condition</a>
+                            <a href="/adminhome">Setting</a>
+                            <a href="/adminhome">More</a>
                         </div>
                 </div>
 
@@ -169,17 +165,13 @@ export default  class AdminAssignDeliver extends  Component{
                                 {/* <input type ="text" required placeholder = "Please enter address" className="form-control" value={this.state.address} onChange = {this.onChangeAddress}/> */}
                             </div>
                             <div className="form-group">
-                                <label>Class :</label>
+                                <label>Station :</label>
                                 <select required readOnly value={this.state.class} onChange = {this.onChangeClass} className="form-control">
-                                    <option value="1st">1st</option>
-                                    <option value="2nd">2nd</option>
-                                    <option value="3rd">3rd</option>
+                                    <option value="Matara">Matara</option>
+                                    <option value="Galle">Galle</option>
+                                    <option value="Colombo">Colombo</option>
                                 </select>
                                 {/* <input type ="text" required placeholder = "Please enter NIC" className="form-control" value={this.state.nic} onChange = {this.onChangeNIC}/> */}
-                            </div>
-                            <div className="form-group">
-                                <label>Seat No :</label>
-                                <input type ="number" readOnly className="form-control" value={this.state.seatno} onChange = {this.onChangeSeatNo}/>
                             </div>
                             <div className="form-group">
                                 <label>Quantity :</label>
@@ -208,9 +200,10 @@ export default  class AdminAssignDeliver extends  Component{
                             <div className="form-group">
                                 <label>Deliver Name :</label>
                                 <select required  value={this.state.deliveryby} onChange = {this.onChangeDeliverBy} className="form-control">
-                                    <option value="1st">H.M. Saman</option>
-                                    <option value="2nd">P.T. Kamal</option>
-                                    <option value="3rd">Nimal Cilva</option>
+                                    <option >Deliver By</option>
+                                    <option value="H.M. Saman">H.M. Saman</option>
+                                    <option value="P.T. Kamal">P.T. Kamal</option>
+                                    <option value="Nimal Cilva">Nimal Cilva</option>
                                 </select>
                             </div>
 

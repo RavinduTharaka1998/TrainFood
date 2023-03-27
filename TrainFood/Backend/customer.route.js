@@ -70,8 +70,7 @@ customerRoutes.route('/orderUpdate/:id').post(function (req,res){
         else{
             orders.foodname = req.body.foodname;
             orders.trainname = req.body.trainname;
-            orders.class = req.body.class;
-            orders.seatno = req.body.seatno;
+            orders.station = req.body.station;
             orders.qty = req.body.qty;
             orders.date = req.body.date;
             orders.price = req.body.price;

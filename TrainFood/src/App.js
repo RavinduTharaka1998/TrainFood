@@ -35,7 +35,7 @@ class App extends Component{
                         <Route  path='/addorder/:id' component={AddOrder}/>
                         <Route  path='/myorder/:id' component={MyOrder}/>
                         <Route  path='/payment/:id' component={Payment}/>
-                        <Route  path='/adminhome' component={AdminHome}/>
+                        <Route  path='/adminhome/:id' component={AdminHome}/>
                         <Route  path='/adminassigndeliver/:id' component={AdminAssignDeliver}/>
                     </Switch>
                 </Router>

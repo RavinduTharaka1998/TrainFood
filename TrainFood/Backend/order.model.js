@@ -9,10 +9,7 @@ Orders = new Schema({
     trainname: {
         type: String
     },
-    class: {
-        type: String
-    },
-    seatno: {
+    station: {
         type: String
     },
     qty: {

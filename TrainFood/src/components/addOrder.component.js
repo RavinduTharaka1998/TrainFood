@@ -12,8 +12,8 @@ export default  class AddOrder extends  Component{
         super(props);
         this.onChangeFoodName = this.onChangeFoodName.bind(this);
         this.onChangeTrainName = this.onChangeTrainName.bind(this);
-        this.onChangeClass = this.onChangeClass.bind(this);
-        this.onChangeSeatNo = this.onChangeSeatNo.bind(this);
+        this.onChangeStation = this.onChangeStation.bind(this);
+        // this.onChangeSeatNo = this.onChangeSeatNo.bind(this);
         this.onChangeQty = this.onChangeQty.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onChangePhone = this.onChangePhone.bind(this);
@@ -25,8 +25,7 @@ export default  class AddOrder extends  Component{
         this.state = {
             foodname: '',
             trainname: '',
-            class:'',
-            seatno:'',
+            station:'',
             qty:'',
             price:'',
             date:'',
@@ -48,14 +47,9 @@ export default  class AddOrder extends  Component{
             trainname: e.target.value
         });
     }
-    onChangeClass(e){
+    onChangeStation(e){
         this.setState( {
-            class: e.target.value
-        });
-    }
-    onChangeSeatNo(e){
-        this.setState( {
-            seatno: e.target.value
+            station: e.target.value
         });
     }
     onChangeQty(e){
@@ -78,16 +72,6 @@ export default  class AddOrder extends  Component{
             email: e.target.value
         });
     }
-    // onChangePayment(e){
-    //     this.setState({
-    //         payment: 'pending'
-    //     });
-    // }
-    // onChangeDeliveryBy(e){
-    //     this.setState({
-    //         deliveryby: 'pending'
-    //     });
-    // }
     onSubmit(e){
         e.preventDefault();
 
@@ -109,8 +93,7 @@ export default  class AddOrder extends  Component{
         const obj = {
             foodname : this.state.foodname,
             trainname : this.state.trainname,
-            class : this.state.class,
-            seatno : this.state.seatno,
+            station : this.state.station,
             qty : this.state.qty,
             date : this.state.date,
             price : this.state.price,
@@ -128,8 +111,7 @@ export default  class AddOrder extends  Component{
                                     this.setState({
                                         foodname: '',
                                         trainname: '',
-                                        class:'',
-                                        seatno:'',
+                                        station:'',
                                         qty:'',
                                         date:'',
                                         phone:'',
@@ -137,7 +119,8 @@ export default  class AddOrder extends  Component{
                             
                                     })
                                     console.log(res.data)});
-                            this.props.history.push('/myorder/'+this.props.match.params.id);
+                            //this.props.history.push('/myorder/'+this.props.match.params.id);
+                            window.location.replace('/myorder/'+this.props.match.params.id);
                         } 
                 
                 else{
@@ -171,6 +154,7 @@ export default  class AddOrder extends  Component{
                             <div className="form-group">
                                 <label>Food Name :</label>
                                 <select required  value={this.state.foodname} onChange = {this.onChangeFoodName} className="form-control">
+                                    <option>Your Food</option>
                                     <option value="Kottu">Kottu</option>
                                     <option value="Mix Rice">Mix Rice</option>
                                     <option value="Noodles">Noodles</option>
@@ -180,6 +164,7 @@ export default  class AddOrder extends  Component{
                             <div className="form-group">
                                 <label>Train Name :</label>
                                 <select required  value={this.state.trainname} onChange = {this.onChangeTrainName} className="form-control">
+                                    <option>Your Train</option>
                                     <option value = "Ruhunu Kumari">Ruhunu Kumari</option>
                                     <option value = "Galu Kumari">Galu Kumari</option>
                                     <option value = "Rajarata Rejini">Rajarata Rejini</option>
@@ -188,17 +173,14 @@ export default  class AddOrder extends  Component{
                                 {/* <input type ="text" required placeholder = "Please enter address" className="form-control" value={this.state.address} onChange = {this.onChangeAddress}/> */}
                             </div>
                             <div className="form-group">
-                                <label>Class :</label>
-                                <select required  value={this.state.class} onChange = {this.onChangeClass} className="form-control">
-                                    <option value="1st">1st</option>
-                                    <option value="2nd">2nd</option>
-                                    <option value="3rd">3rd</option>
+                                <label>Station :</label>
+                                <select required  value={this.state.station} onChange = {this.onChangeStation} className="form-control">\
+                                    <option>Your Station</option>
+                                    <option value="Matara">Matara</option>
+                                    <option value="Galle">Galle</option>
+                                    <option value="Colombo">Colombo</option>
                                 </select>
                                 {/* <input type ="text" required placeholder = "Please enter NIC" className="form-control" value={this.state.nic} onChange = {this.onChangeNIC}/> */}
-                            </div>
-                            <div className="form-group">
-                                <label>Seat No :</label>
-                                <input type ="number" required placeholder = "Please enter Seat Number" className="form-control" value={this.state.seatno} onChange = {this.onChangeSeatNo}/>
                             </div>
                             <div className="form-group">
                                 <label>Quantity :</label>

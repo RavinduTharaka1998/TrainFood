@@ -77,8 +77,7 @@ export default  class MyOrders extends  Component{
                                     {/* <th>id</th> */}
                                     <th>FoodName</th>
                                     <th>TrianName</th>
-                                    <th>Class</th>
-                                    <th>SeatNo</th>
+                                    <th>Station</th>
                                     <th>QTY</th>
                                     <th>Date</th>
                                     <th>Price</th>

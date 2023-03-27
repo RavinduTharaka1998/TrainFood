@@ -37,11 +37,23 @@ export default  class SignIn extends  Component{
             password : this.state.password
         };
 
-        if ((this.state.email === "admin") && (this.state.password === "admin")) {
-             this.props.history.push('/adminhome');
-        }
+        if ((this.state.email === "admin") && (this.state.password === "adminMatara")) {
+             const Station = "Matara";
+             this.props.history.push('/adminhome/'+Station);
 
-        else {
+        }
+        else if ((this.state.email === "admin") && (this.state.password === "adminGalle")) {
+
+            const Station = "Galle";
+            this.props.history.push('/adminhome/'+Station);
+
+       }
+       else if ((this.state.email === "admin") && (this.state.password === "adminColombo")) {
+
+        const Station = "Colombo";
+        this.props.history.push('/adminhome/'+Station);
+
+       }else {
             axios.post('http://localhost:4000/trainFood/login',object)
                 .then(res => {
                     if(res.data.message === "Successful Login"){
