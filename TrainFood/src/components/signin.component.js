@@ -38,7 +38,7 @@ export default  class SignIn extends  Component{
         };
 
         if ((this.state.email === "admin") && (this.state.password === "admin")) {
-             this.props.history.push('/admiIndex');
+             this.props.history.push('/adminhome');
         }
 
         else {

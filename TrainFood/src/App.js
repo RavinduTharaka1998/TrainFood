@@ -13,6 +13,8 @@ import CusProfile from './components/customerProfile.component';
 import AddOrder from './components/addOrder.component';
 import MyOrder from './components/myorder';
 import Payment from './components/Payment.component';
+import AdminHome from './components/adminHome';
+import AdminAssignDeliver from './components/adminAssignDeliver';
 
 
 class App extends Component{
@@ -33,6 +35,8 @@ class App extends Component{
                         <Route  path='/addorder/:id' component={AddOrder}/>
                         <Route  path='/myorder/:id' component={MyOrder}/>
                         <Route  path='/payment/:id' component={Payment}/>
+                        <Route  path='/adminhome' component={AdminHome}/>
+                        <Route  path='/adminassigndeliver/:id' component={AdminAssignDeliver}/>
                     </Switch>
                 </Router>
 
