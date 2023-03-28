@@ -3,18 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route, Link, BrowserRouter} from 'react-router-dom';
 
 
-import Create from './components/create.component';
-import Edit from './components/Orderedit.component';
-import Index from './components/index.component';
-import AboutUs from './components/aboutus.component';
-import SignIn from './components/signin.component';
-import Landing from './components/LandingPage.component';
-import CusProfile from './components/customerProfile.component';
-import AddOrder from './components/addOrder.component';
-import MyOrder from './components/myorder';
-import Payment from './components/Payment.component';
+import Create from './components/cusRegistration';
+import Edit from './components/cusOrderEdit';
+import Index from './components/cusHome';
+import SignIn from './components/signin';
+import Landing from './components/landingPage';
+import CusProfile from './components/cusProfile';
+import AddOrder from './components/cusAddOrder';
+import MyOrder from './components/cusOrders';
+import Payment from './components/cusPayment';
 import AdminHome from './components/adminHome';
 import AdminAssignDeliver from './components/adminAssignDeliver';
+import AdminAddFood from './components/adminAddFood';
+import AdminViewFood from './components/adminViewFood';
+import AdminEditFood from './components/adminEditFood';
 
 
 class App extends Component{
@@ -28,7 +30,6 @@ class App extends Component{
                         <Route  path='/create' component={Create}/>
                         <Route  path='/editOrder/:id' component={Edit}/>
                         <Route  path='/index/:id' component={Index}/>
-                        <Route  path='/aboutUs' component={AboutUs}/>
                         <Route  path='/signIn' component={SignIn}/>
                         <Route  path='/logout' component={Landing}/>
                         <Route  path='/cusprofile/:id' component={CusProfile}/>
@@ -37,6 +38,9 @@ class App extends Component{
                         <Route  path='/payment/:id' component={Payment}/>
                         <Route  path='/adminhome/:id' component={AdminHome}/>
                         <Route  path='/adminassigndeliver/:id' component={AdminAssignDeliver}/>
+                        <Route  path='/adminaddfood/:id' component={AdminAddFood}/>
+                        <Route  path='/adminviewfood/:id' component={AdminViewFood}/>
+                        <Route  path='/admineditfood/:id' component={AdminEditFood}/>
                     </Switch>
                 </Router>
 

@@ -31,6 +31,8 @@ export default  class AdminAssignDeliver extends  Component{
             payment:'',
             deliveryby:''
         }
+
+        this.state.station = this.props.match.params.id;
     }
 
     componentDidMount() {
@@ -116,26 +118,28 @@ export default  class AdminAssignDeliver extends  Component{
 
         console.log('Update id '+this.props.match.params.id);
 
-        axios.post('http://localhost:4000/trainFood/orderUpdate/'+this.props.match.params.id,obj)
+        axios.post('http://localhost:4000/trainFoodAdmin/adminassigndeliver/'+this.props.match.params.id,obj)
             .then(res => console.log(res.data));
         //this.props.history.push('/myorder/'+this.state.email);
-        window.location.replace('/adminhome');
+        window.location.replace('/adminhome/'+this.state.station);
     }
 
     render() {
         return(
             <div>
                 <div class="sidebar">
-                        <a href= "/adminhome">Home</a>
-                        <a href="/deliverydetails">Delivery Details</a>
-                        <a href="/adminhome">About Us</a>
-                        <a href="/adminhome">Contact Us</a>
-                        <a href="/adminhome">Profile</a>
+                        <a href= {"/adminhome/"+this.state.station}>Home</a>
+                        <a href={"/adminadddeliverdetails/"+this.state.station}>Add Deliver Details</a>
+                        <a href={"/adminaddfood/"+this.state.station}>Add Food</a>
+                        <a href={"/adminviewfood/"+this.props.match.params.id}>View Food</a>
+                        <a href={"/adminhome/"+this.state.station}>Contact Us</a>
+                        <a href={"/adminhome/"+this.state.station}>Profile</a>
+                        <a href="/">SignOut</a>
 
                         <div className='inner-menu'>
-                            <a href="/adminhome">Terms & Condition</a>
-                            <a href="/adminhome">Setting</a>
-                            <a href="/adminhome">More</a>
+                            <a href={"/adminhome/"+this.state.station}>Terms & Condition</a>
+                            <a href={"/adminhome/"+this.state.station}>Setting</a>
+                            <a href={"/adminhome/"+this.state.station}>More</a>
                         </div>
                 </div>
 
@@ -147,31 +151,31 @@ export default  class AdminAssignDeliver extends  Component{
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <label>Food Name :</label>
-                                <select required readOnly value={this.state.foodname} onChange = {this.onChangeFoodName} className="form-control">
+                                {/* <select required readOnly value={this.state.foodname} onChange = {this.onChangeFoodName} className="form-control">
                                     <option value="Kottu">Kottu</option>
                                     <option value="Mix Rice">Mix Rice</option>
                                     <option value="Noodles">Noodles</option>
-                                </select>
-                                {/* <input type ="text" required placeholder = "Please enter name" className="form-control" value={this.state.name} onChange = {this.onChangeName}/> */}
+                                </select> */}
+                                <input type ="text" required readOnly value={this.state.foodname} onChange = {this.onChangeFoodName} className="form-control"/>
                             </div>
                             <div className="form-group">
                                 <label>Train Name :</label>
-                                <select required  readOnly value={this.state.trainname} onChange = {this.onChangeTrainName} className="form-control">
+                                {/* <select required  readOnly value={this.state.trainname} onChange = {this.onChangeTrainName} className="form-control">
                                     <option value = "Ruhunu Kumari">Ruhunu Kumari</option>
                                     <option value = "Galu Kumari">Galu Kumari</option>
                                     <option value = "Rajarata Rejini">Rajarata Rejini</option>
                                     <option value = "Udarata Manike">Udarata Manike</option>
-                                </select>
-                                {/* <input type ="text" required placeholder = "Please enter address" className="form-control" value={this.state.address} onChange = {this.onChangeAddress}/> */}
+                                </select> */}
+                                <input type ="text" required  readOnly value={this.state.trainname} onChange = {this.onChangeTrainName} className="form-control"/>
                             </div>
                             <div className="form-group">
                                 <label>Station :</label>
-                                <select required readOnly value={this.state.class} onChange = {this.onChangeClass} className="form-control">
+                                {/* <select required readOnly value={this.state.station} onChange = {this.onChangeStation} className="form-control">
                                     <option value="Matara">Matara</option>
                                     <option value="Galle">Galle</option>
                                     <option value="Colombo">Colombo</option>
-                                </select>
-                                {/* <input type ="text" required placeholder = "Please enter NIC" className="form-control" value={this.state.nic} onChange = {this.onChangeNIC}/> */}
+                                </select> */}
+                                <input type ="text" required readOnly value={this.state.station} onChange = {this.onChangeStation} className="form-control"/>
                             </div>
                             <div className="form-group">
                                 <label>Quantity :</label>

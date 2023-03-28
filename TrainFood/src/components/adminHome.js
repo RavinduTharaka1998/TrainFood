@@ -40,10 +40,11 @@ export default  class AdminHome extends  Component{
     render() {
         return(
                 <div>
-                     <div class="sidebar">
+                    <div class="sidebar">
                         <a href= {"/adminhome/"+this.props.match.params.id}>Home</a>
-                        <a href="/deliverydetails">Delivery Details</a>
-                        <a href={"/adminhome/"+this.props.match.params.id}>About Us</a>
+                        <a href={"/adminadddeliverdetails/"+this.props.match.params.id}>Add Deliver Details</a>
+                        <a href={"/adminaddfood/"+this.props.match.params.id}>Add Food</a>
+                        <a href={"/adminviewfood/"+this.props.match.params.id}>View Food</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Contact Us</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Profile</a>
                         <a href="/">SignOut</a>
