@@ -20,7 +20,9 @@ import AdminEditFood from './components/adminEditFood';
 import AdminAddDeliver from './components/adminAddDeliver';
 import AdminViewDeliver from './components/adminViewDeliver';
 import AdminEditDeliver from './components/adminEditDeliver';
-
+import AdminAddTrain from './components/adminAddTrain';
+import AdminViewTrain from './components/adminViewTrain';
+import AdminEditTrain from './components/adminEditTrain';
 
 class App extends Component{
 
@@ -47,6 +49,9 @@ class App extends Component{
                         <Route  path='/adminadddeliver/:id' component={AdminAddDeliver}/>
                         <Route  path='/adminviewdeliver/:id' component={AdminViewDeliver}/>
                         <Route  path='/admineditdeliver/:id' component={AdminEditDeliver}/>
+                        <Route  path='/adminaddtrain/:id' component={AdminAddTrain}/>
+                        <Route  path='/adminviewtrain/:id' component={AdminViewTrain}/>
+                        <Route  path='/adminedittrain/:id' component={AdminEditTrain}/>
                     </Switch>
                 </Router>
 

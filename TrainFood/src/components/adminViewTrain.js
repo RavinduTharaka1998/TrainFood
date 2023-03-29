@@ -1,16 +1,16 @@
 import  React, {Component} from 'react';
 import axios from 'axios'
-import DeliverTableRow from './adminDeliverTableRow';
+import TrainTableRow from './adminTrainTableRow';
 
 import './css/profile.css';
 import Footer from './footer';
 
-export default  class AdminViewDeliver extends  Component{
+export default  class AdminViewTrain extends  Component{
 
 
     constructor(props) {
         super(props);
-        this.state = {delivers : []};
+        this.state = {trains : []};
         this.state.Station = this.props.match.params.id;
 
         //const Email = this.props.match.params.id;
@@ -18,11 +18,11 @@ export default  class AdminViewDeliver extends  Component{
 
     componentDidMount() {
         // alert('email is ' +this.props.match.params.id);
-        axios.get('http://localhost:4000/trainFoodAdmin/admindeliver/'+this.props.match.params.id)
+        axios.get('http://localhost:4000/trainFoodAdmin/admintrain/'+this.props.match.params.id)
             .then(response => {
                 // alert('Pass una')
                 // alert('Data Tika :'+response.data)
-                this.setState({delivers : response.data});
+                this.setState({trains : response.data});
 
             })
             .catch(function (error){
@@ -31,8 +31,8 @@ export default  class AdminViewDeliver extends  Component{
     }
 
     tabRow(){
-        return this.state.delivers.map(function (object, i){
-            return <DeliverTableRow obj = {object} key = {i}/>;
+        return this.state.trains.map(function (object, i){
+            return <TrainTableRow obj = {object} key = {i}/>;
         });
         // return <OrderTableRow obj={this.state.orders}/>
     }
@@ -63,15 +63,15 @@ export default  class AdminViewDeliver extends  Component{
                         <h2 className= 'tittle'>Fast Food</h2>
 
                         <br/>
-                        <h3 align="center">Your Delivers</h3>
+                        <h3 align="center">Your Trains</h3>
                        
                         <table className="table table-striped" style = {{marginTop :20}}>
                             <thead>
                                 <tr>
                                     {/* <th>id</th> */}
-                                    <th>Deliver Name</th>
-                                    <th>Phone</th>
-                                    <th>NIC</th>
+                                    <th>Train Name</th>
+                                    <th>Arrival Time</th>
+                                    <th>Deparcher time</th>
                                     <th>Station</th>
                                     <th colSpan="3">Action</th>
                                 </tr>

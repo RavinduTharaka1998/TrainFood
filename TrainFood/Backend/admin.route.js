@@ -4,6 +4,8 @@ const adminRoutes = express.Router();
 let Orders = require('./order.model');
 let Foods = require('./food.model');
 let Delivers = require('./deliver.model');
+let Trains = require('./train.model');
+
 
 adminRoutes.route('/adminorders/:id').get(function (req, res){
 
@@ -156,6 +158,68 @@ adminRoutes.route('/admindeliverupdate/:id').post(function (req,res){
 
 adminRoutes.route('/admindeleteDeliver/:id').get(function(req,res){
     Delivers.findByIdAndRemove({_id:req.params.id}, function (err, foods){
+        if(err)res.json(err);
+
+        else res.json('Successfully Removed');
+    });
+});
+
+
+adminRoutes.route('/adminaddtrain').post(function (req,res){
+    let trains = new Trains(req.body);
+    trains.save()
+        .then(trains => {
+            res.status(200).json({'train' : 'train is added successfull'});
+        })
+        .catch(err => {
+            res.status(400).send("Unable to save database")
+        });
+});
+
+adminRoutes.route('/admintrain/:id').get(function (req, res){
+
+    let station = req.params.id;
+    console.log("your station is "+station);
+    Trains.find({$and:[{station : station}]},function (err,train){
+        if(err)
+            console.log(err);
+        else{
+            res.json(train)
+        }
+    });
+});
+
+adminRoutes.route('/admintrainedit/:id').get(function (req,res){
+    let id = req.params.id;
+    Trains.findById(id, function (err,trains){
+        res.json(trains);
+    });
+});
+
+adminRoutes.route('/admintrainupdate/:id').post(function (req,res){
+    let id = req.params.id;
+    Trains.findById(id, function (err, trains){
+        if(!trains)
+            res.status(404).send("Data is not found??");
+        else{
+            trains.name = req.body.name;
+            trains.arrival = req.body.arrival;
+            trains.deparcher = req.body.deparcher;
+            trains.station = req.body.station;
+
+
+            trains.save().then(trains => {
+                res.json('Update Complete');
+            })
+                .catch(err =>{
+                    res.status(400).send("Unable to update data");
+                });
+        }
+    });
+});
+
+adminRoutes.route('/admindeleteTrain/:id').get(function(req,res){
+    Trains.findByIdAndRemove({_id:req.params.id}, function (err, trains){
         if(err)res.json(err);
 
         else res.json('Successfully Removed');
