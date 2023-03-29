@@ -75,29 +75,44 @@ export default  class AdminAddFood extends  Component{
             <div>
                 <div class="sidebar">
                         <a href= {"/adminhome/"+this.props.match.params.id}>Home</a>
-                        <a href={"/adminadddeliverdetails/"+this.props.match.params.id}>Add Deliver Details</a>
+                        <a href={"/adminadddeliver/"+this.props.match.params.id}>Add Deliver</a>
+                        <a href={"/adminviewdeliver/"+this.props.match.params.id}>View Deliver</a>
+                        <a href={"/adminaddtrain/"+this.props.match.params.id}>Add Train</a>
+                        <a href={"/adminviewTrain/"+this.props.match.params.id}>View Train</a>
                         <a href={"/adminaddfood/"+this.props.match.params.id}>Add Food</a>
                         <a href={"/adminviewfood/"+this.props.match.params.id}>View Food</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Contact Us</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Profile</a>
                         <a href="/">SignOut</a>
 
-                        <div className='inner-menu'>
+                        {/* <div className='inner-menu'>
                             <a href={"/adminhome/"+this.props.match.params.id}>Terms & Condition</a>
                             <a href={"/adminhome/"+this.props.match.params.id}>Setting</a>
                             <a href={"/adminhome/"+this.props.match.params.id}>More</a>
-                        </div>
+                        </div> */}
                 </div>
 
                 <div class="content">
                     <h2 className= 'tittle'>Fast Food</h2>
                     <br/>
                     <div className="container " style={{marginTop:10}}>
-                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Assign Deliver</h3>
+                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Add New Food</h3>
+                        <hr/>
+                        <br/>
+                         <center>
+                            <img src = "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg" width ="250" height="150"/>
+                         </center>
+                        <br/>
+                        <hr/>
                         <form onSubmit={this.onSubmit}>
+                            {/* <div className="form-group">
+                                <label>Food Image :</label>
+                                <input type ="file" required className="form-control" value={this.state.price} onChange = {this.onChangePrice}/>
+                            </div> */}
                             <div className="form-group">
                                 <label>Food Name :</label>
                                 <select required  value={this.state.foodname} onChange = {this.onChangeFoodName} className="form-control">
+                                    <option>Select Food..</option>
                                     <option value="Kottu">Kottu</option>
                                     <option value="Mix Rice">Mix Rice</option>
                                     <option value="Noodles">Noodles</option>

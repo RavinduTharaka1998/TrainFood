@@ -42,18 +42,21 @@ export default  class AdminHome extends  Component{
                 <div>
                     <div class="sidebar">
                         <a href= {"/adminhome/"+this.props.match.params.id}>Home</a>
-                        <a href={"/adminadddeliverdetails/"+this.props.match.params.id}>Add Deliver Details</a>
+                        <a href={"/adminadddeliver/"+this.props.match.params.id}>Add Deliver</a>
+                        <a href={"/adminviewdeliver/"+this.props.match.params.id}>View Deliver</a>
+                        <a href={"/adminaddtrain/"+this.props.match.params.id}>Add Train</a>
+                        <a href={"/adminviewTrain/"+this.props.match.params.id}>View Train</a>
                         <a href={"/adminaddfood/"+this.props.match.params.id}>Add Food</a>
                         <a href={"/adminviewfood/"+this.props.match.params.id}>View Food</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Contact Us</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Profile</a>
                         <a href="/">SignOut</a>
 
-                        <div className='inner-menu'>
+                        {/* <div className='inner-menu'>
                             <a href={"/adminhome/"+this.props.match.params.id}>Terms & Condition</a>
                             <a href={"/adminhome/"+this.props.match.params.id}>Setting</a>
                             <a href={"/adminhome/"+this.props.match.params.id}>More</a>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div class="content">

@@ -3,6 +3,7 @@ const adminRoutes = express.Router();
 
 let Orders = require('./order.model');
 let Foods = require('./food.model');
+let Delivers = require('./deliver.model');
 
 adminRoutes.route('/adminorders/:id').get(function (req, res){
 
@@ -93,6 +94,68 @@ adminRoutes.route('/adminfoodupdate/:id').post(function (req,res){
 
 adminRoutes.route('/admindeleteFood/:id').get(function(req,res){
     Foods.findByIdAndRemove({_id:req.params.id}, function (err, foods){
+        if(err)res.json(err);
+
+        else res.json('Successfully Removed');
+    });
+});
+
+adminRoutes.route('/adminadddeliver').post(function (req,res){
+    let delivers = new Delivers(req.body);
+    //alert("deliver backend called");
+    delivers.save()
+        .then(delivers => {
+            res.status(200).json({'deliver' : 'deliver is added successfull'});
+        })
+        .catch(err => {
+            res.status(400).send("Unable to save database")
+        });
+});
+
+adminRoutes.route('/admindeliver/:id').get(function (req, res){
+
+    let station = req.params.id;
+    console.log("your station is "+station);
+    Delivers.find({$and:[{station : station}]},function (err,food){
+        if(err)
+            console.log(err);
+        else{
+            res.json(food)
+        }
+    });
+});
+
+adminRoutes.route('/admindeliveredit/:id').get(function (req,res){
+    let id = req.params.id;
+    Delivers.findById(id, function (err,delivers){
+        res.json(delivers);
+    });
+});
+
+adminRoutes.route('/admindeliverupdate/:id').post(function (req,res){
+    let id = req.params.id;
+    Delivers.findById(id, function (err, delivers){
+        if(!delivers)
+            res.status(404).send("Data is not found??");
+        else{
+            delivers.name = req.body.name;
+            delivers.phone = req.body.phone;
+            delivers.nic = req.body.nic;
+            delivers.station = req.body.station;
+
+
+            delivers.save().then(delivers => {
+                res.json('Update Complete');
+            })
+                .catch(err =>{
+                    res.status(400).send("Unable to update data");
+                });
+        }
+    });
+});
+
+adminRoutes.route('/admindeleteDeliver/:id').get(function(req,res){
+    Delivers.findByIdAndRemove({_id:req.params.id}, function (err, foods){
         if(err)res.json(err);
 
         else res.json('Successfully Removed');

@@ -81,26 +81,29 @@ export default  class AdminEditFood extends  Component{
         return(
             <div>
                 <div class="sidebar">
-                        <a href= {"/adminhome/"+this.props.match.params.id}>Home</a>
-                        <a href={"/adminadddeliverdetails/"+this.props.match.params.id}>Add Deliver Details</a>
-                        <a href={"/adminaddfood/"+this.props.match.params.id}>Add Food</a>
-                        <a href={"/adminviewfood/"+this.props.match.params.id}>View Food</a>
-                        <a href={"/adminhome/"+this.props.match.params.id}>Contact Us</a>
-                        <a href={"/adminhome/"+this.props.match.params.id}>Profile</a>
+                        <a href= {"/adminhome/"+this.state.station}>Home</a>
+                        <a href={"/adminadddeliver/"+this.state.station}>Add Deliver</a>
+                        <a href={"/adminviewdeliver/"+this.state.station}>View Deliver</a>
+                        <a href={"/adminaddtrain/"+this.state.station}>Add Train</a>
+                        <a href={"/adminviewTrain/"+this.state.station}>View Train</a>
+                        <a href={"/adminaddfood/"+this.state.station}>Add Food</a>
+                        <a href={"/adminviewfood/"+this.state.station}>View Food</a>
+                        <a href={"/adminhome/"+this.state.station}>Contact Us</a>
+                        <a href={"/adminhome/"+this.state.station}>Profile</a>
                         <a href="/">SignOut</a>
 
-                        <div className='inner-menu'>
-                            <a href={"/adminhome/"+this.props.match.params.id}>Terms & Condition</a>
-                            <a href={"/adminhome/"+this.props.match.params.id}>Setting</a>
-                            <a href={"/adminhome/"+this.props.match.params.id}>More</a>
-                        </div>
+                        {/* <div className='inner-menu'>
+                            <a href={"/adminhome/"+this.state.station}>Terms & Condition</a>
+                            <a href={"/adminhome/"+this.state.station}>Setting</a>
+                            <a href={"/adminhome/"+this.state.station}>More</a>
+                        </div> */}
                 </div>
 
                 <div class="content">
                     <h2 className= 'tittle'>Fast Food</h2>
                     <br/>
                     <div className="container " style={{marginTop:10}}>
-                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Edit Your Order Details</h3>
+                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Edit Your Food Details</h3>
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <label>Food Name :</label>

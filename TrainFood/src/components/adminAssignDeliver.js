@@ -129,18 +129,21 @@ export default  class AdminAssignDeliver extends  Component{
             <div>
                 <div class="sidebar">
                         <a href= {"/adminhome/"+this.state.station}>Home</a>
-                        <a href={"/adminadddeliverdetails/"+this.state.station}>Add Deliver Details</a>
+                        <a href={"/adminadddeliver/"+this.state.station}>Add Deliver</a>
+                        <a href={"/adminviewdeliver/"+this.state.station}>View Deliver</a>
+                        <a href={"/adminaddtrain/"+this.state.station}>Add Train</a>
+                        <a href={"/adminviewTrain/"+this.state.station}>View Train</a>
                         <a href={"/adminaddfood/"+this.state.station}>Add Food</a>
-                        <a href={"/adminviewfood/"+this.props.match.params.id}>View Food</a>
+                        <a href={"/adminviewfood/"+this.state.station}>View Food</a>
                         <a href={"/adminhome/"+this.state.station}>Contact Us</a>
                         <a href={"/adminhome/"+this.state.station}>Profile</a>
                         <a href="/">SignOut</a>
 
-                        <div className='inner-menu'>
+                        {/* <div className='inner-menu'>
                             <a href={"/adminhome/"+this.state.station}>Terms & Condition</a>
                             <a href={"/adminhome/"+this.state.station}>Setting</a>
                             <a href={"/adminhome/"+this.state.station}>More</a>
-                        </div>
+                        </div> */}
                 </div>
 
                 <div class="content">

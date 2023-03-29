@@ -17,6 +17,9 @@ import AdminAssignDeliver from './components/adminAssignDeliver';
 import AdminAddFood from './components/adminAddFood';
 import AdminViewFood from './components/adminViewFood';
 import AdminEditFood from './components/adminEditFood';
+import AdminAddDeliver from './components/adminAddDeliver';
+import AdminViewDeliver from './components/adminViewDeliver';
+import AdminEditDeliver from './components/adminEditDeliver';
 
 
 class App extends Component{
@@ -41,6 +44,9 @@ class App extends Component{
                         <Route  path='/adminaddfood/:id' component={AdminAddFood}/>
                         <Route  path='/adminviewfood/:id' component={AdminViewFood}/>
                         <Route  path='/admineditfood/:id' component={AdminEditFood}/>
+                        <Route  path='/adminadddeliver/:id' component={AdminAddDeliver}/>
+                        <Route  path='/adminviewdeliver/:id' component={AdminViewDeliver}/>
+                        <Route  path='/admineditdeliver/:id' component={AdminEditDeliver}/>
                     </Switch>
                 </Router>
 
