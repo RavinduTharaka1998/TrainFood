@@ -54,7 +54,7 @@ export default  class MyOrders extends  Component{
     render() {
         return(
                 <div>
-                     <div class="sidebar">
+                    <div class="sidebar">
                         <a href= {"/index/" +this.props.match.params.id}>Home</a>
                         <a href={"/myorder/" +this.props.match.params.id}>My Orders</a>
                         <a href="/about">About Us</a>
@@ -70,7 +70,7 @@ export default  class MyOrders extends  Component{
                     </div>
 
                     <div class="content">
-                        <dic className = "top-tittle-bar">
+                        <div className = "top-tittle-bar">
                             <h2 className= 'tittle'>Fast Food</h2>
                             <from style ={{float:'right',display:'flex',gap:5}} onSubmit={this.onSubmit}>
                                 <div className="form-group">
@@ -80,7 +80,7 @@ export default  class MyOrders extends  Component{
                                     <a href ={"/searchorder/"+this.state.search+"/"+ this.props.match.params.id} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Search</a>
                                 </div>
                             </from>
-                        </dic>
+                        </div>
                        
 
                         <br/><br/>

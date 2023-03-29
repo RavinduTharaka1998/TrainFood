@@ -227,4 +227,24 @@ adminRoutes.route('/admindeleteTrain/:id').get(function(req,res){
 });
 
 
+
+//search function implement
+adminRoutes.route('/adminorderssearch/:pathParam1?/:pathParam2?').get(function (req, res){
+    let search = req.params.pathParam1;
+    let station = req.params.pathParam2;
+    console.log("your search is "+search);
+    console.log("your search is "+station);
+   
+    Orders.find({$and:[{$or: [{date: search}, {trainname: search},{email: search},{phone: search},{deliveryby: search}]},{station: station}]},function (err,srch){ 
+   
+        if(err)
+            console.log(err);
+        else{
+            res.json(srch)
+        }
+    });
+
+});
+
+
 module.exports = adminRoutes;

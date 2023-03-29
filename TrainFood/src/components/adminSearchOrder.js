@@ -1,11 +1,11 @@
 import  React, {Component} from 'react';
 import axios from 'axios'
-import SearchOrderTableRow from './cusSearchOrderTableRow';
+import SearchOrderTableRow from './adminSearchOrderTableRow';
 
 import './css/profile.css';
 import Footer from './footer';
 
-export default  class SearchMyOrders extends  Component{
+export default  class AdminSearchOrder extends  Component{
 
 
     constructor(props) {
@@ -18,8 +18,8 @@ export default  class SearchMyOrders extends  Component{
     }
 
     componentDidMount() {
-        // alert('email is ' +this.props.match.params.id);
-        axios.get('http://localhost:4000/trainFood/mysearchorders/'+this.props.match.params.pathParam1+'/'+this.props.match.params.pathParam2)
+        alert('search is ' +this.props.match.params.pathParam1+ ' and '+this.props.match.params.pathParam2);
+        axios.get('http://localhost:4000/trainFoodAdmin/adminorderssearch/'+this.props.match.params.pathParam1+'/'+this.props.match.params.pathParam2)
             .then(response => {
                 // alert('Pass una')
                 // alert('Data Tika :'+response.data)
@@ -41,26 +41,24 @@ export default  class SearchMyOrders extends  Component{
         return(
                 <div>
                     <div class="sidebar">
-                        <a href= {"/index/" +this.props.match.params.pathParam2}>Home</a>
-                        <a href={"/myorder/" +this.props.match.params.pathParam2}>My Orders</a>
-                        <a href="/about">About Us</a>
-                        <a href="/contact">Contact Us</a>
-                        <a href={"/cusprofile/"+this.props.match.params.pathParam2}>Profile</a>
+                        <a href= {"/adminhome/"+this.props.match.params.pathParam2}>Home</a>
+                        <a href={"/adminadddeliver/"+this.props.match.params.pathParam2}>Add Deliver</a>
+                        <a href={"/adminviewdeliver/"+this.props.match.params.pathParam2}>View Deliver</a>
+                        <a href={"/adminaddtrain/"+this.props.match.params.pathParam2}>Add Train</a>
+                        <a href={"/adminviewTrain/"+this.props.match.params.pathParam2}>View Train</a>
+                        <a href={"/adminaddfood/"+this.props.match.params.pathParam2}>Add Food</a>
+                        <a href={"/adminviewfood/"+this.props.match.params.pathParam2}>View Food</a>
+                        <a href={"/adminhome/"+this.props.match.params.pathParam2}>Contact Us</a>
+                        <a href={"/adminhome/"+this.props.match.params.pathParam2}>Profile</a>
                         <a href="/">SignOut</a>
-
-                        <div className='inner-menu'>
-                            <a href="/signin">Terms & Condition</a>
-                            <a href="/about">Setting</a>
-                            <a href="/contact">More</a>
-                        </div>
                     </div>
 
                     <div class="content">
                         <div className = "top-tittle-bar">
                             <h2 className= 'tittle'>Fast Food</h2>
-                            <from style ={{float:'right',display:'flex',gap:5}}>
+                            <from style ={{float:'right',display:'flex',gap:5}} onSubmit={this.onSubmit}>
                                 <div className="form-group" style ={{float:'right'}}>
-                                    <a href ={"/myorder/"+this.props.match.params.pathParam2} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Go Back</a>
+                                    <a href ={"/adminhome/"+this.props.match.params.pathParam2} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Go Back</a>
                                 </div>
                             </from>
                         </div>

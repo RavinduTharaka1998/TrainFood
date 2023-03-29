@@ -26,6 +26,7 @@ import AdminViewTrain from './components/adminViewTrain';
 import AdminEditTrain from './components/adminEditTrain';
 
 import CusSearchOrder from './components/cusSearchOrder';
+import AdminSearchOrder from './components/adminSearchOrder';
 
 class App extends Component{
 
@@ -56,7 +57,9 @@ class App extends Component{
                         <Route  path='/adminaddtrain/:id' component={AdminAddTrain}/>
                         <Route  path='/adminviewtrain/:id' component={AdminViewTrain}/>
                         <Route  path='/adminedittrain/:id' component={AdminEditTrain}/>
+
                         <Route  path='/searchorder/:pathParam1?/:pathParam2?' component={CusSearchOrder}/>
+                        <Route  path='/adminsearchorder/:pathParam1?/:pathParam2?' component={AdminSearchOrder}/>
                     </Switch>
                 </Router>
 
