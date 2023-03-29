@@ -79,6 +79,22 @@ customerRoutes.route('/:id').get(function (req, res){
 });
 
 
+customerRoutes.route('/mysearchorders/:pathParam1?/:pathParam2?').get(function (req, res){
+    let search = req.params.pathParam1;
+    let email = req.params.pathParam2;
+    console.log("your search is "+search);
+    console.log("your search is "+email);
+    // Orders.find({$and:[{date : search},{email : email}]},function (err,srch){
+    Orders.find({$and:[{$or: [{date: search}, {trainname: search},{station: search}]},{email: email}]},function (err,srch){ 
+        if(err)
+            console.log(err);
+        else{
+            res.json(srch)
+        }
+    });
+
+});
+
 customerRoutes.route('/myorders/:id').get(function (req, res){
     let email = req.params.id;
     console.log("your email is "+email);
@@ -91,8 +107,6 @@ customerRoutes.route('/myorders/:id').get(function (req, res){
     });
 
 });
-
-
 customerRoutes.route('/orderEdit/:id').get(function (req,res){
     let id = req.params.id;
     Orders.findById(id, function (err,orders){

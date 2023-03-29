@@ -10,11 +10,26 @@ export default  class MyOrders extends  Component{
 
     constructor(props) {
         super(props);
-        this.state = {orders : []};
-        this.state.Email = this.props.match.params.id;
 
-        //const Email = this.props.match.params.id;
+        this.onChangeSearch = this.onChangeSearch.bind(this);
+        
+
+        this.state = {
+            orders : [],
+            search:'',
+            mail : this.props.match.params.id
+        }
+
+       
     }
+
+    onChangeSearch(e){
+        this.setState( {
+           search: e.target.value
+        });
+
+    }
+   
 
     componentDidMount() {
         // alert('email is ' +this.props.match.params.id);
@@ -34,7 +49,6 @@ export default  class MyOrders extends  Component{
         return this.state.orders.map(function (object, i){
             return <OrderTableRow obj = {object} key = {i}/>;
         });
-        // return <OrderTableRow obj={this.state.orders}/>
     }
 
     render() {
@@ -56,21 +70,21 @@ export default  class MyOrders extends  Component{
                     </div>
 
                     <div class="content">
-                        <h2 className= 'tittle'>Fast Food</h2>
-
-                        <br/>
-                        <h3 align="center">My Orders</h3>
+                        <dic className = "top-tittle-bar">
+                            <h2 className= 'tittle'>Fast Food</h2>
+                            <from style ={{float:'right',display:'flex',gap:5}} onSubmit={this.onSubmit}>
+                                <div className="form-group">
+                                    <input type ="text" required value={this.state.search} onChange = {this.onChangeSearch} className="form-control"/>
+                                </div>
+                                <div className="form-group" style ={{float:'right'}}>
+                                    <a href ={"/searchorder/"+this.state.search+"/"+ this.props.match.params.id} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Search</a>
+                                </div>
+                            </from>
+                        </dic>
                        
-                        {/* <div className='profile-top'>
-                            <div className='left-details'>
-                                    <h3>Your Profile Details</h3>
-                                    <h5>You can edit or delete your profile details in here....</h5>
-                                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrUvZm16nnAMpUqAvX3N2kODMuxJbXXCJVQg&usqp=CAU"/>
-                            </div>
-                            <div className='right-details'>
-                                {this.tabRow()}
-                            </div>
-                        </div> */}
+
+                        <br/><br/>
+                        <h3 align="center">My Orders</h3>
 
                         <table className="table table-striped" style = {{marginTop :20}}>
                             <thead>
