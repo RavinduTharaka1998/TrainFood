@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Link, BrowserRouter} from 'react
 
 
 import Create from './components/cusRegistration';
+import EditProfile from './components/cusEditProfile';
 import Edit from './components/cusOrderEdit';
 import Index from './components/cusHome';
 import SignIn from './components/signin';
@@ -33,6 +34,7 @@ class App extends Component{
                     <Switch>
                         <Route exact path='/' component={Landing}/>
                         <Route  path='/create' component={Create}/>
+                        <Route  path='/cusedit/:id' component={EditProfile}/>
                         <Route  path='/editOrder/:id' component={Edit}/>
                         <Route  path='/index/:id' component={Index}/>
                         <Route  path='/signIn' component={SignIn}/>

@@ -9,7 +9,7 @@ class TableRow extends Component {
         this.deletesss = this.deletesss.bind(this);
     }
     deletesss(){
-        axios.get('http://localhost:4000/trainFood/delete/'+this.props.obj._id)
+        axios.get('http://localhost:4000/trainFood/deletecus/'+this.props.obj._id)
             .then(this.setState({redirect: true}))
             .catch(err => console.log(err))
         alert("Your Accout Successfully Deleted....")
@@ -40,6 +40,7 @@ class TableRow extends Component {
                   <td>{this.props.obj.email}</td>
                </tr>
                <tr>
+                  <td> <Link to={"/cusedit/"+this.props.obj._id} className="btn btn-success">Edit</Link></td>
                   <td><button onClick={this.deletesss} className="btn btn-danger">Delete Account</button></td>
                </tr>
             </table>

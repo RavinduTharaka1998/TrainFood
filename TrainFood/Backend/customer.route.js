@@ -16,6 +16,44 @@ customerRoutes.route('/add').post(function (req,res){
         });
 });
 
+customerRoutes.route('/editprofile/:id').get(function (req,res){
+    let id = req.params.id;
+    Customers.findById(id, function (err,customers){
+        res.json(customers);
+    });
+});
+
+customerRoutes.route('/updateprofile/:id').post(function (req,res){
+    let id = req.params.id;
+    Customers.findById(id, function (err, customers){
+        if(!customers)
+            res.status(404).send("Data is not found??");
+        else{
+            customers.name = req.body.name;
+            customers.address = req.body.address;
+            customers.nic = req.body.nic;
+            customers.phone = req.body.phone;
+            customers.email = req.body.email;
+            customers.password = req.body.password;
+
+            customers.save().then(customers => {
+                res.json('Update Complete');
+            })
+                .catch(err =>{
+                    res.status(400).send("Unable to update data");
+                });
+        }
+    });
+});
+
+customerRoutes.route('/deletecus/:id').get(function(req,res){
+    Customers.findByIdAndRemove({_id:req.params.id}, function (err, customers){
+        if(err)res.json(err);
+
+        else res.json('Successfully Removed');
+    });
+});
+
 customerRoutes.route('/addorder').post(function (req,res){
     let orders = new Orders(req.body);
     orders.save()

@@ -36,7 +36,7 @@ export default  class Index extends  Component{
     render() {
         return(
                 <div>
-                     <div class="sidebar">
+                    <div class="sidebar">
                         <a href= {"/index/" +this.props.match.params.id}>Home</a>
                         <a href={"/myorder/" +this.props.match.params.id}>My Orders</a>
                         <a href="/about">About Us</a>
