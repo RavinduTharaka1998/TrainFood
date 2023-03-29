@@ -147,19 +147,16 @@ export default  class AdminEditDeliver extends  Component{
                     <br/>
                     <div className='top-footer'>
                         <div className='col-img'>
-                            <img src = "https://limitlessspice.com/wp-content/uploads/2022/02/kottu-g734b601c4_1920.jpg" width="400"/>
-                            <h4>Koththu</h4>
-                            <h4>Rs 1000/=</h4>
+                            <img src = "https://images.yen.com.gh/images/1e458e8258712ac5.jpg?imwidth=900" width="390"/>
+                            <h4>Customer Frindly Delivery Service</h4>
                         </div>
                         <div className='col-img'>
-                            <img src = "https://cdn.chinesedragoncafe.com/media/catalog/product/cache/1/image/988x988/9df78eab33525d08d6e5fb8d27136e95/r/i/rice-with-shrimp-_-chicken.jpg" width="475"/>
-                            <h4>Mix Rice</h4>
-                            <h4>Rs 900/=</h4>
+                            <img src = "https://www.azfoodandwine.com/wp-content/uploads/2020/03/delivery-staff_68708-255.jpg" width="475"/>
+                            <h4>Number One Delivery Service</h4>
                         </div>
                         <div className='col-img'>
-                            <img src = "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/12/270770-garlic-noodles-ddmfs-4x3-0189.jpg" width="" height=""/>
-                            <h4>Noodles</h4>
-                            <h4>Rs 1200/=</h4>
+                            <img src = "https://media.istockphoto.com/id/1200224470/vector/motorbike-delivery-man-logo-icon-symbol-vector-template.jpg?s=612x612&w=0&k=20&c=TohyHnrnHsJWj3bglwTJ7NmnX9U98x0-1aEkTiej1Xk=" width="" height=""/>
+                            <h4>Fastest Delivery Service</h4>
                         </div>
                     </div>
                      

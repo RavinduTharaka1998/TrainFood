@@ -85,19 +85,20 @@ export default  class AdminViewTrain extends  Component{
                         <hr/>                 
                         <div className='top-footer'>
                             <div className='col-img'>
-                                <img src = "https://limitlessspice.com/wp-content/uploads/2022/02/kottu-g734b601c4_1920.jpg" width="400"/>
-                                <h4>Koththu</h4>
-                                <h4>Rs 1000/=</h4>
+                                <img src = "https://images.moneycontrol.com/static-mcnews/2021/08/Indian-Railways-770x433.jpg?impolicy=website&width=770&height=431" width="400"/>
+                                <br/><br/>
+                                <h4 style={{textAlign:'center'}}>Ruhunu Kumari</h4>
                             </div>
                             <div className='col-img'>
-                                <img src = "https://cdn.chinesedragoncafe.com/media/catalog/product/cache/1/image/988x988/9df78eab33525d08d6e5fb8d27136e95/r/i/rice-with-shrimp-_-chicken.jpg" width="475"/>
-                                <h4>Mix Rice</h4>
-                                <h4>Rs 900/=</h4>
+                                <img src = "https://www.timeforkids.com/wp-content/uploads/2020/02/feature-cover_-train-k1.jpg" width="475"/>
+                                <br/><br/>
+                                <h4 style={{textAlign:'center'}}>Udarata Menike</h4>
+                               
                             </div>
                             <div className='col-img'>
-                                <img src = "https://static.onecms.io/wp-content/uploads/sites/43/2023/01/12/270770-garlic-noodles-ddmfs-4x3-0189.jpg" width="" height=""/>
-                                <h4>Noodles</h4>
-                                <h4>Rs 1200/=</h4>
+                                <img src = "https://static.toiimg.com/thumb/msid-68664756,width-400,resizemode-4/68664756.jpg" width="" height=""/>
+                                <br/><br/>
+                                <h4 style={{textAlign:'center'}}>Yal Dewi</h4>
                             </div>
                             
                         </div>
