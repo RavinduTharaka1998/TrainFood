@@ -5,7 +5,7 @@ import TrainTableRow from './adminTrainTableRow';
 import './css/profile.css';
 import Footer from './footer';
 
-export default  class AdminViewTrain extends  Component{
+export default  class AdminSearchTrain extends  Component{
 
 
     constructor(props) {
