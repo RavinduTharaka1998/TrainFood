@@ -28,6 +28,7 @@ import AdminEditTrain from './components/adminEditTrain';
 import CusSearchOrder from './components/cusSearchOrder';
 import AdminSearchOrder from './components/adminSearchOrder';
 import AdminSearchDeliver from './components/adminSearchDeliver';
+import AdminSearchTrain from './components/adminSearchTrain';
 
 class App extends Component{
 
@@ -62,6 +63,7 @@ class App extends Component{
                         <Route  path='/searchorder/:pathParam1?/:pathParam2?' component={CusSearchOrder}/>
                         <Route  path='/adminsearchorder/:pathParam1?/:pathParam2?' component={AdminSearchOrder}/>
                         <Route  path='/adminsearchdeliver/:pathParam1?/:pathParam2?' component={AdminSearchDeliver}/>
+                        <Route  path='/adminsearchtrain/:pathParam1?/:pathParam2?' component={AdminSearchTrain}/>
                     </Switch>
                 </Router>
 

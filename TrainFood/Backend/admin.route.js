@@ -261,5 +261,21 @@ adminRoutes.route('/adminsearchdeliver/:pathParam1?/:pathParam2?').get(function 
     });
 });
 
+adminRoutes.route('/adminsearchtrain/:pathParam1?/:pathParam2?').get(function (req, res){
+    let search = req.params.pathParam1;
+    let station = req.params.pathParam2;
+    console.log("your search is "+search);
+    console.log("your search is "+station);
+   
+    Trains.find({$and:[{$or: [{name: search}, {arrival: search},{deparcher: search}]},{station: station}]},function (err,srch){ 
+   
+        if(err)
+            console.log(err);
+        else{
+            res.json(srch)
+        }
+    });
+});
+
 
 module.exports = adminRoutes;
