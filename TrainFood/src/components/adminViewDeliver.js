@@ -10,10 +10,16 @@ export default  class AdminViewDeliver extends  Component{
 
     constructor(props) {
         super(props);
-        this.state = {delivers : []};
+        this.state = {delivers : [], search:''};
         this.state.Station = this.props.match.params.id;
 
-        //const Email = this.props.match.params.id;
+        this.onChangeSearch = this.onChangeSearch.bind(this);
+    }
+    onChangeSearch(e){
+        this.setState( {
+           search: e.target.value
+        });
+
     }
 
     componentDidMount() {
@@ -51,18 +57,21 @@ export default  class AdminViewDeliver extends  Component{
                         <a href={"/adminhome/"+this.props.match.params.id}>Contact Us</a>
                         <a href={"/adminhome/"+this.props.match.params.id}>Profile</a>
                         <a href="/">SignOut</a>
-
-                        {/* <div className='inner-menu'>
-                            <a href={"/adminhome/"+this.props.match.params.id}>Terms & Condition</a>
-                            <a href={"/adminhome/"+this.props.match.params.id}>Setting</a>
-                            <a href={"/adminhome/"+this.props.match.params.id}>More</a>
-                        </div> */}
                     </div>
 
                     <div class="content">
-                        <h2 className= 'tittle'>Fast Food</h2>
-
-                        <br/>
+                        <div className = "top-tittle-bar">
+                            <h2 className= 'tittle'>Fast Food</h2>
+                            <from style ={{float:'right',display:'flex',gap:5}} onSubmit={this.onSubmit}>
+                                <div className="form-group">
+                                    <input type ="text" required value={this.state.search} onChange = {this.onChangeSearch} className="form-control"/>
+                                </div>
+                                <div className="form-group" style ={{float:'right'}}>
+                                    <a href ={"/adminsearchdeliver/"+this.state.search+"/"+this.props.match.params.id} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Search</a>
+                                </div>
+                            </from>
+                        </div>
+                        <br/><br/><br/>
                         <h3 align="center">Your Delivers</h3>
                        
                         <table className="table table-striped" style = {{marginTop :20}}>

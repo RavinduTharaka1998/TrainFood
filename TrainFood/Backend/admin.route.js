@@ -243,7 +243,22 @@ adminRoutes.route('/adminorderssearch/:pathParam1?/:pathParam2?').get(function (
             res.json(srch)
         }
     });
+});
 
+adminRoutes.route('/adminsearchdeliver/:pathParam1?/:pathParam2?').get(function (req, res){
+    let search = req.params.pathParam1;
+    let station = req.params.pathParam2;
+    console.log("your search is "+search);
+    console.log("your search is "+station);
+   
+    Delivers.find({$and:[{$or: [{name: search}, {phone: search},{nic: search}]},{station: station}]},function (err,srch){ 
+   
+        if(err)
+            console.log(err);
+        else{
+            res.json(srch)
+        }
+    });
 });
 
 
